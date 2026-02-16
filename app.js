@@ -6,7 +6,8 @@
 // ==========================================
 const beatsvibeDatabase = {
     "BV-1001": { password: "pass", name: "Suyash Rathod", courses: ["Data Analytics Pro"] },
-    "BV-1002": { password: "tech", name: "Ketan Jadhao", courses: ["MERN Stack Mastery"] }
+    "BV-1002": { password: "tech", name: "Ketan Jadhao", courses: ["MERN Stack Mastery"] },
+    "BV-1003": { password: "mona", name: "Mohini Borkar", courses: ["Data Analytics Pro"] }
 };
 
 // ==========================================
