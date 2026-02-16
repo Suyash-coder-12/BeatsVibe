@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | BeatsVibe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans']">
+    
+    <nav class="bg-white border-b border-slate-200 p-6 flex justify-between items-center shadow-sm sticky top-0 z-50">
+        <div class="font-extrabold text-blue-600 text-xl tracking-tight">BeatsVibe Portal</div>
+        <button onclick="logout()" class="text-red-500 font-bold text-sm bg-red-50 px-4 py-2 rounded-lg hover:bg-red-100 transition">Logout</button>
+    </nav>
 
+    <main class="max-w-5xl mx-auto py-12 px-6">
+        <h2 id="welcomeText" class="text-3xl md:text-4xl font-extrabold mb-10 animate-fade">Welcome Back!</h2>
+        
+        <h3 class="text-2xl font-bold mb-6">My <span class="text-blue-600">Active Courses</span></h3>
+        <div id="myCoursesList" class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade">
+            </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
