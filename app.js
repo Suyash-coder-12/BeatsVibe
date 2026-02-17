@@ -6,7 +6,8 @@
 const beatsvibeDatabase = {
     "BV-1001": { password: "pass@1", name: "Suyash Rathod", courses: ["Data Analytics Pro","MERN Stack Mastery","AI & Neural Networks","Cybersecurity Expert","Python for Finance","Cloud Ops (AWS)","UI/UX Design Systems","Ethical Hacking 2.0","Blockchain Dev"] },
     "BV-1002": { password: "tech", name: "Ketan Jadhao", courses: ["MERN Stack Mastery"] },
-    "BV-1003": { password: "monaa", name: "Mohini Borkar", courses: ["Data Analytics Pro", "MERN Stack Mastery"] }
+    "BV-1003": { password: "monaa", name: "Mohini Borkar", courses: ["Data Analytics Pro", "MERN Stack Mastery"] },
+    "BV-1004": { password: "admin@1", name: "Suraj Gulab Rathod", courses: ["Data Analytics Pro", "MERN Stack Mastery"] }
 };
 
 // ==========================================
