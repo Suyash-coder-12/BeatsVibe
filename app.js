@@ -4,9 +4,9 @@
 // 1. ADMIN CONTROL ROOM (Tera Private Database)
 // ==========================================
 const beatsvibeDatabase = {
-    "BV-1001": { password: "pass", name: "Suyash Rathod", courses: ["Data Analytics Pro"] },
+    "BV-1001": { password: "pass@1", name: "Suyash Rathod", courses: ["Data Analytics Pro","MERN Stack Mastery","AI & Neural Networks","Cybersecurity Expert","Python for Finance","Cloud Ops (AWS)","UI/UX Design Systems","Ethical Hacking 2.0","Blockchain Dev"] },
     "BV-1002": { password: "tech", name: "Ketan Jadhao", courses: ["MERN Stack Mastery"] },
-    "BV-1003": { password: "mona", name: "Mohini Borkar", courses: ["Data Analytics Pro", "MERN Stack Mastery"] }
+    "BV-1003": { password: "monaa", name: "Mohini Borkar", courses: ["Data Analytics Pro", "MERN Stack Mastery"] }
 };
 
 // ==========================================
@@ -29,7 +29,7 @@ const allCourses = [
 // ==========================================
 const courseData = {
     "Data Analytics Pro": {
-        materialLink: "https://drive.google.com/drive/folders/YOUR_PDF_LINK", 
+        materialLink: "https://drive.google.com/file/d/19nPhhvaEPEfIMKVgMSLGawxwEhvAP2PG/view?usp=drivesdk", 
         modules: [
             { title: "1. Data Analytics Full Course | 10 Hours", video: "https://www.youtube.com/embed/BC1bgvwB9HQ?rel=0" },
             { title: "2. SQL Queries Mastery", video: "https://www.youtube.com/embed/tgbNymZ7vqY?rel=0" }
