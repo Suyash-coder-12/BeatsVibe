@@ -5,7 +5,7 @@
 // Naye admission aane par ID aur password yahan add karna.
 // ==========================================
 const beatsvibeDatabase = {
-    "BV-1001": { password: "pass", name: "Suyash Rathod", courses: ["Data Analytics Pro"] },
+    "BV-1001": { password: "pass", name: "Suyash Rathod", courses: ["Data Analytics Pro","MERN Stack Mastery", " AI & Neural Networks", "Cybersecurity Expert", "Python for Finance", "Cloud Ops (AWS)"] },
     "BV-1002": { password: "tech", name: "Ketan Jadhao", courses: ["MERN Stack Mastery"] },
     "BV-1003": { password: "monaa", name: "Mohini Borkar", courses: ["Data Analytics Pro"] }
 };
