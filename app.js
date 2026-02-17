@@ -36,7 +36,7 @@ const allCourses = [
 // ==========================================
 const courseData = {
     "Data Analytics Pro": {
-        materialLink: "https://drive.google.com/drive/folders/YOUR_PDF_NOTES_LINK", 
+        materialLink: "https://drive.google.com/file/d/19nPhhvaEPEfIMKVgMSLGawxwEhvAP2PG/view?usp=drivesdk", 
         modules: [
             // Tera YouTube video properly embed ho gaya hai
             { title: "1. Data Analytics Full Course | 10 Hours", video: "https://www.youtube.com/embed/BC1bgvwB9HQ?rel=0" },
