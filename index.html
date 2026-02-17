@@ -5,58 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeatsVibe Technologies | Scaling Tech Careers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans']">
+<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans'] dark:bg-slate-900 dark:text-white transition-colors duration-300">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="font-extrabold text-2xl tracking-tight flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg text-white flex items-center justify-center text-sm shadow-lg shadow-blue-200">B</div>
+            <div class="font-extrabold text-2xl tracking-tight flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg text-white flex items-center justify-center text-sm shadow-lg shadow-blue-500/30">B</div>
                 BeatsVibe
             </div>
-            <button onclick="toggleModal('loginModal', true)" class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-blue-600 transition-all shadow-lg">Student Login</button>
+            <div class="flex gap-4 items-center">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-yellow-400 hover:scale-110 transition-transform">
+                    <i id="themeIcon" class="fas fa-moon"></i>
+                </button>
+                <button onclick="toggleModal('loginModal', true)" class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-blue-600 dark:hover:bg-slate-200 transition-all shadow-lg">Student Portal</button>
+            </div>
         </div>
     </nav>
 
-    <main class="pt-40 pb-20 px-6 text-center animate-fade">
-        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block">ISO 9001:2015 Certified</span>
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Build the <span class="text-blue-600">Future.</span></h1>
-        <p class="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10">Premium Tech Education and Mentorship by Industry Experts.</p>
+    <main class="pt-40 pb-20 px-6 text-center animate-fade-in-up">
+        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block">ISO 9001:2015 Certified EdTech</span>
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-slate-900 dark:text-white">Build the <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Future.</span></h1>
+        <p class="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">Premium Tech Education, Real-World Projects, and Mentorship by Industry Experts.</p>
     </main>
 
     <section class="max-w-7xl mx-auto px-6 pb-24">
-        <h2 class="text-4xl font-extrabold text-center mb-12">Our Premium <span class="text-blue-600">Academy</span></h2>
-        <div id="courseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        <h2 class="text-4xl font-extrabold text-center mb-12 dark:text-white">Our Premium <span class="text-blue-600">Academy</span></h2>
+        <div id="courseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"></div>
     </section>
 
+    <section id="founder-section" class="bg-white dark:bg-slate-800 py-24 border-t border-slate-100 dark:border-slate-700 transition-colors">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+            <div class="w-56 h-56 rounded-[40px] overflow-hidden shadow-2xl border-4 border-slate-50 dark:border-slate-700 shrink-0 transform hover:scale-105 transition-transform duration-500 relative">
+                <img src="C:\Users\Suyash Rathod\Downloads\founder.jpg" alt="Suyash Rathod" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <span class="bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 px-3 py-1 rounded-md font-bold tracking-widest uppercase text-xs">Meet The Founder</span>
+                <h2 class="text-4xl font-extrabold mt-4 mb-2 dark:text-white">Suyash Rathod</h2>
+                <p class="text-blue-600 dark:text-blue-400 font-bold mb-6">Founder & Lead Instructor, BeatsVibe Technologies</p>
+                <p class="text-slate-500 dark:text-slate-300 text-lg leading-relaxed mb-8 italic">"My vision is to build an ecosystem where students don't just memorize code, but engineer solutions. At BeatsVibe, we bridge the gap between traditional degrees and modern industry demands."</p>
+                <div class="flex justify-center md:justify-start gap-4">
+                    <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-blue-600 dark:text-white hover:bg-blue-600 hover:text-white hover:shadow-lg transition-all"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-blue-400 dark:text-white hover:bg-blue-400 hover:text-white hover:shadow-lg transition-all"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-pink-600 dark:text-white hover:bg-pink-600 hover:text-white hover:shadow-lg transition-all"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-20 pb-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div>
+                <div class="font-extrabold text-2xl tracking-tight flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-blue-600 rounded text-white flex items-center justify-center text-sm">B</div>
+                    BeatsVibe
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Empowering minds with cutting-edge tech education and building the innovators of tomorrow.</p>
+                <div class="flex gap-3">
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-6">Company</h4>
+                <ul class="space-y-4 text-slate-400 text-sm">
+                    <li><a href="🚀 About Us – Beatsvibe Technologies
+
+Beatsvibe Technologies ek innovation-driven technology company hai jo modern businesses ko digital world me grow karne ke liye smart, scalable aur future-ready solutions provide karti hai.
+
+Humara mission simple hai — “Ideas ko Impact me convert karna.”
+
+Aaj ke fast-moving digital era me sirf online hona enough nahi hai, powerful digital presence banana zaroori hai. Beatsvibe Technologies isi vision ke saath businesses ko technology, creativity aur strategy ka perfect blend provide karti hai.
+
+💡 What We Do
+
+Hum multiple domains me end-to-end services provide karte hain:
+
+🌐 Website & Web Application Development
+
+📱 Mobile App Development
+
+🎨 UI/UX Designing
+
+📊 Digital Marketing & Branding
+
+☁️ Cloud & IT Solutions
+
+🤖 Automation & Smart Tech Integration
+
+Har project me hum innovation, performance aur security ko priority dete hain.
+
+🎯 Our Vision
+
+Humara vision hai India se ek aisi tech company build karna jo global level par trusted brand bane aur startups se lekar enterprises tak sabko empower kare.
+
+🏆 Why Choose Beatsvibe Technologies?
+
+✔ Client-centric approach
+✔ Scalable & secure solutions
+✔ Latest technology stack
+✔ Strong industry collaborations
+✔ Professional & transparent working model
+
+Hum sirf services nahi dete — hum long-term partnerships build karte hain.
+
+🌍 Our Network & Growth
+
+Beatsvibe Technologies ka strong network multiple industries me spread hai. Hum 50+ companies ke saath collaborations maintain karte hain aur enterprise-level clients ke saath bhi strategic partnerships me kaam kar chuke hain.
+
+🤝 Our Commitment
+
+Har client ke liye hamara commitment hai:
+Quality. Transparency. Innovation. Results." class="hover:text-blue-400 transition">About Us</a></li>
+                    <li><a href="#founder-section" class="hover:text-blue-400 transition">Meet the Founder</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Contact Support</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-6">Legal</h4>
+                <ul class="space-y-4 text-slate-400 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Refund & Cancellation</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Data Protection</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-6">Get in Touch</h4>
+                <ul class="space-y-4 text-slate-400 text-sm">
+                    <li class="flex items-center gap-3"><i class="fas fa-envelope text-blue-500"></i> admin@beatsvibe.com</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-blue-500"></i> Maharashtra, India</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+            <p>&copy; 2026 BeatsVibe Technologies Pvt Ltd. All rights reserved.</p>
+            <p class="font-bold tracking-wide text-slate-400 bg-slate-800 px-4 py-2 rounded-full">
+                Developed by <span class="text-white">Suyash Rathod</span> <i class="fas fa-bolt text-yellow-400 ml-1"></i>
+            </p>
+        </div>
+    </footer>
+
     <div id="loginModal" class="modal-overlay hidden">
-        <div class="bg-white p-10 rounded-[40px] shadow-2xl w-full max-w-md relative animate-pop">
-            <button onclick="toggleModal('loginModal', false)" class="absolute top-6 right-6 text-slate-400 font-bold text-xl hover:text-slate-900">&times;</button>
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-lg shadow-blue-200">
+        <div class="bg-white dark:bg-slate-800 p-10 rounded-[40px] shadow-2xl w-full max-w-md relative animate-pop border border-slate-100 dark:border-slate-700">
+            <button onclick="toggleModal('loginModal', false)" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold text-xl transition-colors">&times;</button>
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-lg shadow-blue-500/30">
                 <i class="fas fa-user-graduate"></i>
             </div>
-            <h2 class="text-2xl font-bold mb-6 text-center">Authorized Access</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center dark:text-white">Student Portal</h2>
             <form onsubmit="handleLogin(event)" class="space-y-4 text-left">
                 <div>
                     <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Student ID</label>
-                    <input type="text" id="studentId" placeholder="BV-0000" class="w-full mt-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all font-bold" required>
+                    <input type="text" id="studentId" placeholder="BV-0000" class="w-full mt-1 p-4 bg-slate-50 dark:bg-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-2xl outline-none focus:border-blue-600 focus:ring-2 transition-all font-bold" required>
                 </div>
                 <div>
                     <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
-                    <input type="password" id="studentPass" placeholder="••••••••" class="w-full mt-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all font-bold" required>
+                    <input type="password" id="studentPass" placeholder="••••••••" class="w-full mt-1 p-4 bg-slate-50 dark:bg-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-2xl outline-none focus:border-blue-600 focus:ring-2 transition-all font-bold" required>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-slate-900 transition-all mt-4 shadow-lg shadow-blue-200">Login to Dashboard <i class="fas fa-arrow-right ml-2"></i></button>
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-slate-900 dark:hover:bg-blue-500 transition-all mt-4 shadow-lg shadow-blue-500/30">Secure Login <i class="fas fa-arrow-right ml-2"></i></button>
             </form>
         </div>
     </div>
 
-    <footer class="bg-white border-t border-slate-200 py-10 text-center text-slate-500 font-medium">
-        &copy; 2026 BeatsVibe Technologies Pvt Ltd. Empowering the next generation.
-    </footer>
-
     <script src="app.js"></script>
+    <script>
+        if(localStorage.getItem('theme') === 'dark') { document.documentElement.classList.add('dark'); document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun'); }
+    </script>
 </body>
 </html>
