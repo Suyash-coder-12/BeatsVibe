@@ -3,27 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard | BeatsVibe</title>
+    <title>Student Portal | BeatsVibe</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans']">
+<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans'] dark:bg-slate-900 dark:text-white transition-colors duration-300 flex flex-col min-h-screen">
     
-    <nav class="bg-white border-b border-slate-200 p-6 flex justify-between items-center shadow-sm sticky top-0 z-50">
-        <div class="font-extrabold text-blue-600 text-xl tracking-tight">BeatsVibe Portal</div>
-        <button onclick="logout()" class="text-red-500 font-bold text-sm bg-red-50 px-4 py-2 rounded-lg hover:bg-red-100 transition">Logout</button>
+    <nav class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 p-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="font-extrabold text-blue-600 dark:text-blue-400 text-xl tracking-tight flex items-center gap-2" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <div class="w-8 h-8 bg-blue-600 rounded text-white flex items-center justify-center text-sm shadow-lg">B</div>
+            BeatsVibe
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-yellow-400 hover:scale-110 transition">
+                <i id="themeIconDash" class="fas fa-moon"></i>
+            </button>
+            <button onclick="logout()" class="text-red-500 font-bold text-sm bg-red-50 dark:bg-red-900/20 px-4 py-2 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/40 transition">Logout</button>
+        </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto py-12 px-6">
-        <h2 id="welcomeText" class="text-3xl md:text-4xl font-extrabold mb-10 animate-fade">Welcome Back!</h2>
+    <div class="flex-1 flex flex-col md:flex-row max-w-7xl mx-auto w-full">
         
-        <h3 class="text-2xl font-bold mb-6">My <span class="text-blue-600">Active Courses</span></h3>
-        <div id="myCoursesList" class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade">
+        <aside class="w-full md:w-64 p-6 border-r border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-4 mb-8 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                <div class="w-12 h-12 bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center text-xl font-bold">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div>
+                    <h3 id="dashName" class="font-bold text-sm truncate w-24 dark:text-white">Student</h3>
+                    <p class="text-xs text-green-500 font-bold">● Active</p>
+                </div>
             </div>
-    </main>
+
+            <nav class="space-y-2">
+                <button onclick="switchTab('courses')" id="btn-courses" class="dash-tab w-full text-left p-3 rounded-xl font-bold text-sm transition flex items-center gap-3 bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                    <i class="fas fa-play-circle w-5"></i> My Courses
+                </button>
+                <button onclick="switchTab('notes')" id="btn-notes" class="dash-tab w-full text-left p-3 rounded-xl font-bold text-sm transition flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-book-open w-5"></i> Study Material
+                </button>
+                <button onclick="switchTab('certs')" id="btn-certs" class="dash-tab w-full text-left p-3 rounded-xl font-bold text-sm transition flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-certificate w-5"></i> Certificates
+                </button>
+                <button onclick="switchTab('settings')" id="btn-settings" class="dash-tab w-full text-left p-3 rounded-xl font-bold text-sm transition flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-cog w-5"></i> Settings
+                </button>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10 overflow-y-auto relative">
+            
+            <div id="tab-courses" class="tab-content block animate-fade-in-up">
+                <h2 id="welcomeText" class="text-3xl font-extrabold mb-8 dark:text-white">Welcome Back!</h2>
+                <div id="myCoursesList" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+            </div>
+
+            <div id="tab-notes" class="tab-content hidden animate-fade-in-up">
+                <h2 class="text-3xl font-extrabold mb-8 dark:text-white">Study <span class="text-blue-600">Material</span></h2>
+                <div id="myNotesList"></div>
+            </div>
+
+            <div id="tab-certs" class="tab-content hidden animate-fade-in-up">
+                <h2 class="text-3xl font-extrabold mb-8 dark:text-white">Your <span class="text-blue-600">Certificates</span></h2>
+                <div class="p-12 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-[32px] text-center bg-slate-50 dark:bg-slate-800/50">
+                    <i class="fas fa-shield-alt text-5xl text-slate-300 dark:text-slate-600 mb-4"></i>
+                    <h3 class="font-bold text-xl text-slate-700 dark:text-slate-300">Certificates Locked</h3>
+                    <p class="text-slate-500 text-sm mt-2 max-w-md mx-auto">Complete 100% of your enrolled courses to automatically unlock your industry-recognized certificates.</p>
+                </div>
+            </div>
+
+            <div id="tab-settings" class="tab-content hidden animate-fade-in-up">
+                <h2 class="text-3xl font-extrabold mb-8 dark:text-white">Account <span class="text-blue-600">Settings</span></h2>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 max-w-xl shadow-sm">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Registered Name</label>
+                            <input type="text" id="set-name" readonly class="w-full mt-2 p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 cursor-not-allowed outline-none">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Student ID</label>
+                            <input type="text" id="set-id" readonly class="w-full mt-2 p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 cursor-not-allowed outline-none">
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed"><i class="fas fa-info-circle text-blue-500 mr-1"></i> To update your personal details or password, please contact the Admin (Suyash Rathod).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
 
     <script src="app.js"></script>
+    <script>
+        if(localStorage.getItem('theme') === 'dark') { 
+            document.documentElement.classList.add('dark'); 
+            const themeIcon = document.getElementById('themeIconDash');
+            if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun'); 
+        }
+    </script>
 </body>
 </html>
