@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classroom | BeatsVibe Technologies</title>
+    <title>Classroom | BeatsVibe</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -14,10 +15,10 @@
     <nav class="bg-slate-900 border-b border-slate-800 p-4 flex justify-between items-center z-50 shadow-md">
         <div class="flex items-center gap-4">
             <button onclick="window.location.href='dashboard.html'" class="text-slate-400 hover:text-white transition flex items-center gap-2 font-bold text-sm bg-slate-800 hover:bg-slate-700 px-5 py-2.5 rounded-xl">
-                <i class="fas fa-arrow-left"></i> Back to Dashboard
+                <i class="fas fa-arrow-left"></i> Dashboard
             </button>
             <div class="h-6 w-px bg-slate-700 hidden md:block"></div>
-            <h1 id="lessonTitle" class="font-extrabold text-lg tracking-tight hidden md:block text-white">Loading Course...</h1>
+            <h1 id="lessonTitle" class="font-extrabold text-lg tracking-tight hidden md:block text-white">Loading...</h1>
         </div>
         
         <div class="flex items-center gap-3">
@@ -30,7 +31,7 @@
         
         <div class="flex-1 flex flex-col relative">
             <div class="flex-1 relative w-full h-full flex items-center justify-center bg-black">
-                <iframe id="videoPlayer" class="w-full h-full max-w-6xl aspect-video shadow-2xl" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="videoPlayer" class="w-full h-full max-w-6xl aspect-video shadow-2xl" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
             
             <div class="bg-slate-900 p-6 md:p-8 text-white border-t border-slate-800">
@@ -39,38 +40,32 @@
             </div>
         </div>
 
-        <div class="w-full md:w-96 bg-white flex flex-col h-[45vh] md:h-full z-10 shadow-2xl border-l border-slate-800">
+        <div class="w-full md:w-96 bg-slate-900 flex flex-col h-[45vh] md:h-full z-10 shadow-2xl border-l border-slate-800">
             
-            <div class="p-6 border-b border-slate-100 bg-slate-50">
-                <h3 class="font-extrabold text-xl text-slate-900">Course Modules</h3>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Select a topic to start learning</p>
+            <div class="p-6 border-b border-slate-800 bg-slate-900">
+                <h3 class="font-extrabold text-xl text-white">Course Modules</h3>
+                <p class="text-xs text-slate-500 mt-1 font-medium">Select a topic to start</p>
             </div>
             
-            <div id="moduleList" class="flex-1 overflow-y-auto p-4 space-y-2 bg-white">
-                </div>
+            <div id="moduleList" class="flex-1 overflow-y-auto p-4 space-y-2 bg-slate-900"></div>
 
-            <div class="p-6 border-t border-slate-100 bg-slate-50">
-                <button onclick="downloadNotes()" class="w-full py-4 bg-blue-50 text-blue-700 border border-blue-200 rounded-2xl font-bold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-3 shadow-sm hover:shadow-md">
-                    <i class="fas fa-file-pdf text-xl"></i> Download Study Material
+            <div class="p-6 border-t border-slate-800 bg-slate-900">
+                <button onclick="downloadNotes()" class="w-full py-4 bg-blue-900/30 text-blue-400 border border-blue-800 rounded-2xl font-bold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-3">
+                    <i class="fas fa-file-pdf text-xl"></i> Download Materials
                 </button>
             </div>
         </div>
     </main>
 
     <script src="app.js"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const user = JSON.parse(localStorage.getItem('beatsvibe_session'));
-            if (!user) { 
-                window.location.href = "index.html"; 
-                return; 
-            }
+            if (!user) { window.location.href = "index.html"; return; }
 
             const urlParams = new URLSearchParams(window.location.search);
             const courseName = urlParams.get('course');
 
-            // Strict Security Check
             if (!courseName || !user.courses.includes(courseName)) {
                 alert("Access Denied! Aapne yeh course enroll nahi kiya hai.");
                 window.location.href = "dashboard.html";
@@ -78,10 +73,7 @@
             }
 
             document.getElementById('lessonTitle').innerText = courseName;
-            
-            if (typeof loadCourseData === "function") {
-                loadCourseData(courseName);
-            }
+            if (typeof loadCourseData === "function") loadCourseData(courseName);
         });
     </script>
 </body>
